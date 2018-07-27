@@ -1,0 +1,7 @@
+site_name: friendviz
+
+theme: material
+
+plugins:
+    - search
+    - awesome-pages

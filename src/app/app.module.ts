@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { GraphComponent } from './graph/graph.component';
 import { ControlComponent } from './control/control.component';
+import { FriendManagerModule } from './friend-manager/friend-manager.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ControlComponent } from './control/control.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    FriendManagerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

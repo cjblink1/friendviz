@@ -1,15 +1,9 @@
 <div class="control">
   <mat-toolbar>
-    <button mat-raised-button (click)="zoomIn()">
-      <mat-icon>add</mat-icon>
-    </button>
-    <button mat-raised-button (click)="zoomOut()">
-      <mat-icon>remove</mat-icon>
-    </button>
-    <button mat-raised-button (click)="reset()">
+    <app-add-friend-button class="button"></app-add-friend-button>
+    <app-remove-friend-button class="button"></app-remove-friend-button>
+    <button class="button" mat-raised-button (click)="reset()">
       <mat-icon>refresh</mat-icon>
     </button>
   </mat-toolbar>
-  <!-- <button class="button">Add</button>
-  <button class="button">Remove</button> -->
 </div>

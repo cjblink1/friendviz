@@ -9,6 +9,6 @@ mat-toolbar {
     background-color: #80808080;
 }
 
-button {
+.button {
     margin: 0 5px;
 }
