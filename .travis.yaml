@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "10.7.0"
+
+install:
+  - npm install @angular/cli -g
+  - npm install
+
+script:
+  - ng build
+  - docker build -t cjblink1/friendviz:$TRAVIS_COMMIT .
+  - docker push cjblink1/friendviz:$TRAVIS_COMMIT
