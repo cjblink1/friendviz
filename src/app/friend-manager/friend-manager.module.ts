@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddFriendButtonComponent } from './add-friend-button/add-friend-button.component';
 import { RemoveFriendButtonComponent } from './remove-friend-button/remove-friend-button.component';
 import { FriendManagerService } from './friend-manager.service';
-import { MatButtonModule, MatBottomSheet, MatBottomSheetModule } from '../../../node_modules/@angular/material';
+import { MatButtonModule, MatBottomSheet, MatBottomSheetModule } from '@angular/material';
 import { AddFriendBottomSheetComponent } from './add-friend-bottom-sheet/add-friend-bottom-sheet.component';
 
 @NgModule({

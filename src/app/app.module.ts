@@ -4,23 +4,20 @@ import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/mater
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { GraphComponent } from './graph/graph.component';
 import { ControlComponent } from './control/control.component';
 import { FriendManagerModule } from './friend-manager/friend-manager.module';
+import { GraphModule } from './graph/graph.module';
+import { ControlModule } from './control/control.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GraphComponent,
-    ControlComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    FriendManagerModule
+    GraphModule,
+    ControlModule
   ],
   providers: [],
   bootstrap: [AppComponent]

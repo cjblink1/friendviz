@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheetRef } from '../../../../node_modules/@angular/material';
+import { MatBottomSheetRef } from '@angular/material';
 
 
 @Component({

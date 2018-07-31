@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-import { GraphService } from '../graph.service';
+import { GraphService } from './graph.service';
 declare var require: any;
-const graph = require('../../assets/miserables.json');
+const graph = require('../../assets/friends.json');
 
 @Component({
   selector: 'app-graph',
@@ -11,8 +11,8 @@ const graph = require('../../assets/miserables.json');
 })
 export class GraphComponent implements OnInit {
 
-  private svg;
-  private g;
+  private svg: d3.Selection<d3.BaseType, {}, HTMLElement, any>;
+  private g: d3.Selection<d3.BaseType, {}, HTMLElement, any>;
   private zoom;
 
   constructor(private graphService: GraphService) {

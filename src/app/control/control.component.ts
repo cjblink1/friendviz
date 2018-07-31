@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GraphService } from '../graph.service';
+import { GraphService } from '../graph/graph.service';
 
 @Component({
   selector: 'app-control',

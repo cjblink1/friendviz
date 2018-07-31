@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatBottomSheet } from '../../../../node_modules/@angular/material';
+import { MatBottomSheet } from '@angular/material';
 import { AddFriendBottomSheetComponent } from '../add-friend-bottom-sheet/add-friend-bottom-sheet.component';
 
 @Component({

@@ -1,0 +1,23 @@
+{
+    "nodes": [
+      {"id": "Me", "group": 1},
+      {"id": "Friend1", "group": 2},
+      {"id": "Friend2", "group": 2},
+      {"id": "Friend3", "group": 2},
+      {"id": "Friend4", "group": 2},
+      {"id": "Friend5", "group": 2},
+      {"id": "Friend6", "group": 2},
+      {"id": "Friend7", "group": 2},
+      {"id": "Friend8", "group": 2}
+    ],
+    "links": [
+      {"source": "Me", "target": "Friend1", "value": 1},
+      {"source": "Me", "target": "Friend2", "value": 1},
+      {"source": "Me", "target": "Friend3", "value": 1},
+      {"source": "Me", "target": "Friend4", "value": 1},
+      {"source": "Me", "target": "Friend5", "value": 1},
+      {"source": "Me", "target": "Friend6", "value": 1},
+      {"source": "Me", "target": "Friend7", "value": 1},
+      {"source": "Me", "target": "Friend8", "value": 1}
+    ]
+  }
