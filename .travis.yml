@@ -7,7 +7,7 @@ install:
   - npm install
 
 script:
-  - ng build --prod
+  - ng build
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker build -t cjblink1/friendviz:$TRAVIS_COMMIT .
   - docker push cjblink1/friendviz:$TRAVIS_COMMIT
