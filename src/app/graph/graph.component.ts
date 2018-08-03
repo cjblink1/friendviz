@@ -14,6 +14,8 @@ export class GraphComponent implements OnInit {
   private svg: d3.Selection<d3.BaseType, {}, HTMLElement, any>;
   private g: d3.Selection<d3.BaseType, {}, HTMLElement, any>;
   private zoom;
+  private currentSelected: any;
+  private currentSelectedData: any;
 
   constructor(private graphService: GraphService) {
     graphService.addObserver(this);
@@ -21,105 +23,117 @@ export class GraphComponent implements OnInit {
 
   ngOnInit() {
 
-    this.svg = d3.select("svg");
-    var width = parseInt(this.svg.style("width"));
-    var height = parseInt(this.svg.style("height"));
+    this.svg = d3.select('svg');
+    const width = parseInt(this.svg.style('width'), 10);
+    const height = parseInt(this.svg.style('height'), 10);
 
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    var manyBodyForce = d3.forceManyBody();
-    manyBodyForce.strength(-30)
+    const manyBodyForce = d3.forceManyBody();
+    manyBodyForce.strength(-30);
 
-    var linkForce = d3.forceLink().id(function (d: any) { return d.id; });
+    const linkForce = d3.forceLink().id(function (d: any) { return d.id; });
     linkForce.distance(30);
 
-    var simulation = d3.forceSimulation()
-      // .force("collision", d3.forceCollide(30))
-      .force("link", linkForce)
-      .force("charge", manyBodyForce)
-      .force("center", d3.forceCenter(width / 2, height / 2));
+    const simulation = d3.forceSimulation()
+      // .force('collision', d3.forceCollide(30))
+      .force('link', linkForce)
+      .force('charge', manyBodyForce)
+      .force('center', d3.forceCenter(width / 2, height / 2));
 
-    this.g = this.svg.append("g").attr("class", "everything");
-    console.log(this.g.attr("transform"));
+    this.g = this.svg.append('g').attr('class', 'everything');
+    console.log(this.g.attr('transform'));
 
-    var link = this.g.append("g")
-      .attr("class", "links")
-      .selectAll("line")
+    const link = this.g.append('g')
+      .attr('class', 'links')
+      .selectAll('line')
       .data(graph.links)
-      .enter().append("line")
-      .attr("stroke-width", function (d: any) { return Math.sqrt(d.value); });
+      .enter().append('line')
+      .attr('stroke-width', function (d: any) { return Math.sqrt(d.value); });
 
 
-    let dragstarted = (d) => {
-      if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    const dragstarted = (d) => {
+      if (!d3.event.active) {
+        simulation.alphaTarget(0.3).restart();
+      }
       d.fx = d.x;
       d.fy = d.y;
-    }
+    };
 
-    let dragged = (d) => {
+    const dragged = (d) => {
       d.fx = d3.event.x;
       d.fy = d3.event.y;
-    }
+    };
 
-    let dragended = (d) => {
-      if (!d3.event.active) simulation.alphaTarget(0);
+    const dragended = (d) => {
+      if (!d3.event.active) {
+        simulation.alphaTarget(0);
+      }
       d.fx = null;
       d.fy = null;
-    }
+    };
 
-    var node = this.g.append("g")
-      .attr("class", "nodes")
-      .selectAll("circle")
+    const clicked = (d, index, nodes) => {
+      d3.select(this.currentSelected).attr('class', '');
+      this.currentSelected = nodes[index];
+      this.currentSelectedData = d;
+      d3.select(this.currentSelected).attr('class', 'selected');
+    };
+
+    const node = this.g.append('g')
+      .attr('class', 'nodes')
+      .selectAll('circle')
       .data(graph.nodes)
-      .enter().append("circle")
-      .attr("r", 5)
-      .attr("fill", function (d: any) { return color(d.group); })
+      .enter().append('circle')
+      .attr('r', 5)
+      .attr('fill', function (d: any) { return color(d.group); })
+      .on('click', clicked)
       .call(d3.drag()
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended));
+        .on('start', dragstarted)
+        .on('drag', dragged)
+        .on('end', dragended));
 
-    //Zoom functions 
-    let zoom_actions = () => {
-      this.g.attr("transform", d3.event.transform)
-    }
+    // Zoom functions
+    const zoom_actions = () => {
+      this.g.attr('transform', d3.event.transform);
+    };
 
-    //add zoom capabilities 
+    // add zoom capabilities
 
     this.zoom = d3.zoom();
-    var zoom_handler = this.zoom
-      .on("zoom", zoom_actions);
+    const zoom_handler = this.zoom
+      .on('zoom', zoom_actions);
 
     zoom_handler(this.svg);
 
 
-    node.append("title")
+    node.append('title')
       .text(function (d: any) { return d.id; });
 
     simulation
       .nodes(graph.nodes)
-      .on("tick", ticked);
+      .on('tick', ticked);
 
-    simulation.force<any>("link")
+    simulation.force<any>('link')
       .links(graph.links);
 
 
     function ticked() {
       link
-        .attr("x1", function (d: any) { return d.source.x; })
-        .attr("y1", function (d: any) { return d.source.y; })
-        .attr("x2", function (d: any) { return d.target.x; })
-        .attr("y2", function (d: any) { return d.target.y; });
+        .attr('x1', function (d: any) { return d.source.x; })
+        .attr('y1', function (d: any) { return d.source.y; })
+        .attr('x2', function (d: any) { return d.target.x; })
+        .attr('y2', function (d: any) { return d.target.y; });
 
       node
-        .attr("cx", function (d: any) { return d.x; })
-        .attr("cy", function (d: any) { return d.y; });
+        .attr('cx', function (d: any) { return d.x; })
+        .attr('cy', function (d: any) { return d.y; });
     }
   }
 
   handle(event) {
-    switch(event) {
-      case "reset": {
+    switch (event) {
+      case 'reset': {
         this.svg.call(this.zoom.transform, d3.zoomIdentity);
       }
     }
