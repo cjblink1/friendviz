@@ -1,5 +1,11 @@
-.fab-top-right {
+app-login-button {
     position: fixed;
     top: 10px;
     right: 10px;
+}
+
+app-control {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
 }

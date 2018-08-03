@@ -1,9 +1,7 @@
 <div class="control">
-  <mat-toolbar>
-    <app-add-friend-button class="button"></app-add-friend-button>
-    <app-remove-friend-button class="button"></app-remove-friend-button>
-    <button class="button" mat-raised-button (click)="reset()">
-      <mat-icon>refresh</mat-icon>
-    </button>
-  </mat-toolbar>
+  <app-add-friend-button class="button"></app-add-friend-button>
+  <!-- <app-remove-friend-button class="button"></app-remove-friend-button> -->
+  <button mat-fab class="button" mat-raised-button (click)="reset()">
+    <mat-icon>my_location</mat-icon>
+  </button>
 </div>

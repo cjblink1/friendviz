@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddFriendButtonComponent } from './add-friend-button/add-friend-button.component';
 import { RemoveFriendButtonComponent } from './remove-friend-button/remove-friend-button.component';
-import { FriendManagerService } from './friend-manager.service';
-import { MatButtonModule, MatBottomSheet, MatBottomSheetModule } from '@angular/material';
+import { MatButtonModule, MatBottomSheetModule, MatIconModule } from '@angular/material';
 import { AddFriendBottomSheetComponent } from './add-friend-bottom-sheet/add-friend-bottom-sheet.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MatButtonModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatIconModule
   ],
   declarations: [
-    AddFriendButtonComponent, 
-    RemoveFriendButtonComponent, 
+    AddFriendButtonComponent,
+    RemoveFriendButtonComponent,
     AddFriendBottomSheetComponent
   ],
   exports: [
