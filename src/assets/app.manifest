@@ -1,0 +1,8 @@
+CACHE MANIFEST
+
+../main.js
+../polyfills.js
+../runtime.js
+../styles.js
+../vendor.js
+friends.json
