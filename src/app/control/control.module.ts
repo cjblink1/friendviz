@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlComponent } from './control.component';
 import { FriendManagerModule } from '../friend-manager/friend-manager.module';
-import { MatIconModule, MatToolbarModule, MatButtonModule } from '../../../node_modules/@angular/material';
+import { MatIconModule, MatToolbarModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [

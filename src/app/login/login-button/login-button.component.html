@@ -1,0 +1,5 @@
+<button mat-fab *ngIf="!signedIn" (click)="openLoginDialog()">
+  <mat-icon >person</mat-icon>
+</button>
+<button mat-fab *ngIf="signedIn" [style.backgroundImage]="'url(' + profileImageUrl + ')'" (click)="openLoginDialog()">
+</button>
