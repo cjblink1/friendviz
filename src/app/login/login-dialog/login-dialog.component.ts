@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService, AbstractLoginObserver } from '../login.service';
+import { MatDialogRef } from '@angular/material';
 
 declare var gapi: any;
 
@@ -10,7 +11,7 @@ declare var gapi: any;
 })
 export class LoginDialogComponent extends AbstractLoginObserver implements OnInit {
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private dialogRef: MatDialogRef<LoginDialogComponent>) {
     super();
     loginService.addObserver(this);
   }
@@ -34,6 +35,10 @@ export class LoginDialogComponent extends AbstractLoginObserver implements OnIni
 
   signOut() {
     this.loginService.signOut();
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
 }
