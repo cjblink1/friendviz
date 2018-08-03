@@ -13,6 +13,9 @@ gapi.load('auth2', () => {
   gapi.auth2.init(params).then((googleAuth: gapi.auth2.GoogleAuth) => {
     platformBrowserDynamic().bootstrapModule(AppModule)
       .catch(err => console.log(err));
+  }, () => {
+    platformBrowserDynamic().bootstrapModule(AppModule)
+      .catch(err => console.log(err));
   });
 });
 

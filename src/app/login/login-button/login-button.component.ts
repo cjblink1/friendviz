@@ -11,7 +11,7 @@ import { LoginService, AbstractLoginObserver } from '../login.service';
 export class LoginButtonComponent extends AbstractLoginObserver implements OnInit {
 
   private profileImageUrl: string;
-  private signedIn: boolean;
+  signedIn: boolean;
 
   constructor(private dialog: MatDialog, private loginService: LoginService, private zone: NgZone) {
     super();
