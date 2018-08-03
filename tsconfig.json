@@ -15,10 +15,6 @@
     "lib": [
       "es2017",
       "dom"
-    ],
-    "types": [
-      "gapi",
-      "gapi.auth2"
     ]
   }
 }

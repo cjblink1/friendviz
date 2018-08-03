@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService, AbstractLoginObserver } from '../login.service';
 
+declare var gapi: any;
+
 @Component({
   selector: 'app-login-dialog',
   templateUrl: './login-dialog.component.html',

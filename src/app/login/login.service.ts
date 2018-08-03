@@ -1,4 +1,3 @@
-/// <reference path="../../../node_modules/@types/gapi/index.d.ts" />
 import { Injectable } from '@angular/core';
 
 declare var gapi: any;
