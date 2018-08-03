@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 declare var gapi: any;
-gapi.load('auth2');
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,6 @@ export class LoginService {
 
   private observers: AbstractLoginObserver[] = [];
   private googleAuth: gapi.auth2.GoogleAuth;
-  // private currentState: State;
 
   constructor() {
     this.googleAuth = gapi.auth2.getAuthInstance();
@@ -26,7 +24,7 @@ export class LoginService {
   }
 
   signOut() {
-    this.googleAuth.signOut();
+    this.googleAuth.disconnect();
   }
 
   onSignIn() {
